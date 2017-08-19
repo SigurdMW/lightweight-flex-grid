@@ -4,4 +4,4 @@ This is a simple and light weight grid using flexbox that weights only 4kb (not 
 This grid ships with **no fallback** for browsers who don't support flex-box, but it does have prefixes for older browsers. [Check current browser support at CanIUse.com](http://caniuse.com/#feat=flexbox).
 
 ## Example
-[Check out the example and clone this repo to get started.](dist/index.html)
+[Check out the example and clone this repo to get started.](https://sigurdmw.github.io/lightweight-flex-grid/)
