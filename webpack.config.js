@@ -4,10 +4,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: {
+    "dist": "./src/index.js",
+    "docs": "./src/index.js",
+  },
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
+    path: __dirname,
+    filename: "[name]/bundle.js",
   },
   module: {
     rules: [
@@ -35,10 +38,17 @@ module.exports = {
     ]
   },
   plugins: [
-   new ExtractTextPlugin("styles.css"),
+   new ExtractTextPlugin("[name]/styles.css"),
    new HtmlWebpackPlugin({
      title: 'Simple Flex Grid',
-     filename: 'index.html',
+     chunks: ["dist"],
+     filename: 'dist/index.html',
+     template: 'static/index.html',
+   }),
+   new HtmlWebpackPlugin({
+     title: 'Simple Flex Grid',
+     chunks: ["docs"],
+     filename: 'docs/index.html',
      template: 'static/index.html',
    }),
  ]
