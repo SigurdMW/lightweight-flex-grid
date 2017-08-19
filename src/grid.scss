@@ -1,0 +1,114 @@
+$columns: 12;
+$grid-gutter: 1em;
+$breakpoint-medium: 768px;
+$breakpoint-large: 1200px;
+$container-size: 1150px;
+
+@mixin gridBorderBox {
+  box-sizing: border-box;
+}
+
+// ### GRID CONTAINER ###
+.container,
+%container {
+  width: 100%;
+  max-width: $container-size;
+  margin: 0 auto;
+  padding: 0 $grid-gutter;
+  @include gridBorderBox;
+}
+
+// ### HELPERS ###
+.visible-md, .hidden-xs { display: none !important; }
+
+@media screen and (min-width: $breakpoint-medium) {
+  .visible-md, .hidden-xs { display: block !important; }
+  .visible-xs { display: none !important; }
+}
+
+// use on col to make first in the row
+.col-first-on-mobile {
+  order: -1;
+
+  @media screen and (min-width: $breakpoint-medium) {
+    order: 0;
+  }
+}
+
+// ### Grid Row ###
+.row,
+%row {
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-right: -$grid-gutter;
+  margin-left: -$grid-gutter;
+}
+
+// helper to make columns equal width without knowing how many columns
+.col {
+  flex: none;
+  padding: 0 $grid-gutter;
+  width: 100%;
+
+  @media screen and (min-width: $breakpoint-medium) {
+    width: auto;
+    flex: 1;
+  }
+}
+
+.equal-height {
+  display: flex;
+  flex-direction: column;
+}
+
+.vertical-align-middle {
+  justify-content: center;
+}
+
+.horisontal-align-items {
+  align-items: center;
+}
+
+.center-items {
+  align-items: center;
+  justify-content: center;
+}
+
+// ### COLUMN ###
+[class*="col-"]{
+  flex: none;
+  // gutter
+  padding: 0 $grid-gutter;
+  @include gridBorderBox;
+}
+
+.col-xs-1 { flex: 1;}
+
+@mixin columns ($columns, $device){
+  @for $i from 1 through $columns {
+    .col-#{$device}-#{$i} {
+      width: $i / $columns * 100%;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-medium) {
+  // ### default for md on smaller devices is full width ###
+  [class*="col-md-"]{
+    width: 100%;
+  }
+}
+
+// Include when needed
+@include columns($columns, "xs");
+
+//@include columns($columns, "sm");
+@media screen and (min-width: $breakpoint-medium) {
+  @include columns($columns, "md");
+}
+
+@media screen and (min-width: $breakpoint-large) {
+  @include columns($columns, "lg");
+}

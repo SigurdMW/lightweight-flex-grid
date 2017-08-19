@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Simple Flex Grid System</title>
+  <link href="styles.css" rel="stylesheet"></head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h1>Simple Flex Grid</h1>
+          <p>
+            This is a simple and light weight grid using flexbox that weights only 4kb (not gzipped, just minified!). The usage is similar to Bootstrap, and the SASS-code makes the grid easy to customize. Enjoy!
+          </p>
+          <p>
+            <strong>NB!</strong> It ships with no fallback for browsers who don't support flex-box. <a href="http://caniuse.com/#feat=flexbox">Check current browser support at CanIUse.com.</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-showcase">
+        <div class="row margin-bottom">
+          <div class="col-md-4 col-xs-4"><div class="grid-showcase-item">4</div></div>
+          <div class="col-md-4 col-xs-4"><div class="grid-showcase-item">4</div></div>
+          <div class="col-md-4 col-xs-4"><div class="grid-showcase-item">4</div></div>
+        </div>
+
+        <p>
+          Equal height columns in pure CSS? No problem, just add class "equal-height":
+        </p>
+        <div class="row margin-bottom">
+          <div class="col-md-4 col-xs-4 equal-height">
+            <div class="grid-showcase-item">4</div>
+            <div class="grid-showcase-item">4</div>
+          </div>
+          <div class="col-md-4 col-xs-4 equal-height"><div class="grid-showcase-item">4</div></div>
+          <div class="col-md-4 col-xs-4 equal-height"><div class="grid-showcase-item">4</div></div>
+        </div>
+
+        <p>
+          Aligning content within columns? Works like a charm!
+          <div class="row margin-bottom grid-showcase-align">
+            <div class="col-md-3 col-xs-6 equal-height">
+              <div class="grid-showcase-item">4</div>
+              <div class="grid-showcase-item">4</div>
+            </div>
+
+            <div class="col-md-3 col-xs-6 equal-height vertical-align-middle">
+              <div class="grid-showcase-item">Vertical aligned</div>
+            </div>
+
+            <div class="col-md-3 col-xs-6 equal-height horisontal-align-items">
+              <div class="grid-showcase-item">Horisontal aliged!</div>
+            </div>
+
+            <div class="col-md-3 col-xs-6 equal-height center-items">
+              <div class="grid-showcase-item">Horisontal and vertical aligned!</div>
+            </div>
+          </div>
+        </p>
+      </div>
+    </div>
+  <script type="text/javascript" src="bundle.js"></script></body>
+</html>
